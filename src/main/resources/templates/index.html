@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
+    <link rel="script" th:href="@{/script/script.js}" href="../static/scripts/script.js">
 </head>
 <body>
 <header th:replace="fragments/header :: header">
@@ -19,4 +20,16 @@
 </footer>
 
 </body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
 </html>
