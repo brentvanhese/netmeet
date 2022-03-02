@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Header</title>
 </head>
 <body>
-
+<header th:fragment="header">
+    <h1>NetMeet</h1>
+    <nav class="topnav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/netwerkevents}">Netwerkevents</a>
+        <a th:href="@{/organisators}">Organisators</a>
+        <a th:href="@{/overOns}">Over ons</a>
+        <a th:href="@{/account}">Account</a>
+    </nav>
+</header>
 </body>
 </html>
