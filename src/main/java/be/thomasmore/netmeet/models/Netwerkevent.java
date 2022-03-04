@@ -8,6 +8,7 @@ public class Netwerkevent {
     @Id
     private Integer id;
     private String naamNetwerkEvent;
+    private String vakGebied;
     private String provincie;
     private String adres;
     private String organisator;
@@ -67,5 +68,13 @@ public class Netwerkevent {
 
     public void setMaxAanwezigen(int maxAanwezigen) {
         this.maxAanwezigen = maxAanwezigen;
+    }
+
+    public String getVakGebied() {
+        return vakGebied;
+    }
+
+    public void setVakGebied(String vakGebied) {
+        this.vakGebied = vakGebied;
     }
 }
