@@ -2,6 +2,7 @@ package be.thomasmore.netmeet.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Netwerkevent {
@@ -14,6 +15,9 @@ public class Netwerkevent {
     private String organisator;
     private String info;
     private int maxAanwezigen;
+    private String datum;
+    private double duur;
+    private String startUur;
 
     public Netwerkevent() {
     }
@@ -76,5 +80,29 @@ public class Netwerkevent {
 
     public void setVakGebied(String vakGebied) {
         this.vakGebied = vakGebied;
+    }
+
+    public double getDuur() {
+        return duur;
+    }
+
+    public void setDuur(double duur) {
+        this.duur = duur;
+    }
+
+    public String getStartUur() {
+        return startUur;
+    }
+
+    public void setStartUur(String startUur) {
+        this.startUur = startUur;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
     }
 }

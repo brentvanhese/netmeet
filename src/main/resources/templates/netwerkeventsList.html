@@ -15,6 +15,19 @@
 
 <main>
 
+    <section class="project-cards">
+        <div th:each="netwerkevent: ${netwerkevents}">
+            <div class="card">
+                <h4><b th:text="${netwerkevent.naamNetwerkEvent}"></b></h4>
+                <p th:text="${'Info ' + netwerkevent.info}"></p>
+                <p th:text="${'Provincie: ' + netwerkevent.provincie}"></p>
+                <div class="container">
+                    <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <footer th:replace="fragments/footer :: footer">
