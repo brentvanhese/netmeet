@@ -6,8 +6,11 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
-<header th:replace="fragments/header :: header">
-    Hier komt de header
+<header>
+    <div th:replace="fragments/header :: header">
+        hier komt de header
+    </div>
+    <h2>Over ons</h2>
 </header>
 
 <main>
