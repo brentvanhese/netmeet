@@ -97,8 +97,9 @@ footer{
     padding-left: 10px;
 }
 
+/*slide show*/
 .slideshow-container {
-    max-width: 1000px;
+    max-width: 750px;
     position: relative;
     margin: auto;
 }
@@ -137,9 +138,7 @@ footer{
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
-    width: 100%;
     text-align: center;
-    width: 97.5%;
     background-color: darkgrey;
     opacity: 0.7;
 }
