@@ -1,7 +1,6 @@
 package be.thomasmore.netmeet.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,12 +11,17 @@ public class Netwerkevent {
     private String vakGebied;
     private String provincie;
     private String adres;
-    private String organisator;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Organisator organisator;
+    //private String organisator;
     private String info;
     private int maxAanwezigen;
-    private String datum;
-    private double duur;
-    private String startUur;
+    @Temporal(TemporalType.DATE)
+    private Date datum;
+    @Temporal(TemporalType.TIME)
+    private Date duur;
+    @Temporal(TemporalType.TIME)
+    private Date startUur;
 
     public Netwerkevent() {
     }
@@ -50,11 +54,11 @@ public class Netwerkevent {
         this.adres = adres;
     }
 
-    public String getOrganisator() {
+    public Organisator getOrganisator() {
         return organisator;
     }
 
-    public void setOrganisator(String organisator) {
+    public void setOrganisator(Organisator organisator) {
         this.organisator = organisator;
     }
 
@@ -82,27 +86,27 @@ public class Netwerkevent {
         this.vakGebied = vakGebied;
     }
 
-    public double getDuur() {
-        return duur;
-    }
-
-    public void setDuur(double duur) {
-        this.duur = duur;
-    }
-
-    public String getStartUur() {
-        return startUur;
-    }
-
-    public void setStartUur(String startUur) {
-        this.startUur = startUur;
-    }
-
-    public String getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
-    public void setDatum(String datum) {
+    public void setDatum(Date datum) {
         this.datum = datum;
+    }
+
+    public Date getDuur() {
+        return duur;
+    }
+
+    public void setDuur(Date duur) {
+        this.duur = duur;
+    }
+
+    public Date getStartUur() {
+        return startUur;
+    }
+
+    public void setStartUur(Date startUur) {
+        this.startUur = startUur;
     }
 }

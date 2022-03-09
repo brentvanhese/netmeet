@@ -10,7 +10,7 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h2 th:text="${netwerkevent.naamNetwerkEvent}"></h2>
+    <h2 th:text="${netwerkevent.naamNetwerkEvent} + ' - ' + ${netwerkevent.datum}"></h2>
 </header>
 
 <main>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <td><p>Organisator :</p></td>
-            <td><p th:text="${netwerkevent.organisator}">Organisator</p></td>
+            <td><p th:text="${netwerkevent.organisator.naam}">Organisator</p></td>
         </tr>
         <tr>
             <td><p>Vakgebied :</p></td>
