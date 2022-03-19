@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@500&display=swap');
+/*basic*/
+html{
+    margin: 0;
+    background-color: #e0e0e0;
+    font-family: "Source Sans Pro", Arial, "Helvetica Neue", Helvetoca, sans-serif;
+    font-size: 18px;
+}
+
+a{
+    color: #00a9f4;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4{
+    color: #29434e;
+}
+
+/*Nav*/
 .topnav {
     overflow: hidden;
-    background-color: black;
+    background-color: #29434e;
     margin-bottom: 50px;
 }
 
@@ -19,45 +39,20 @@
 }
 
 .topnav a:hover {
-    background-color: #555;
+    background-color: #819ca9;
     color: white;
 }
 
+.netmeetPhoto > img{
+    max-height: 75px;
+}
+
+/*footer*/
 footer{
-    border-top: 1px solid black;
+    border-top: 1px solid #29434e;
     margin-top: 50px;
     text-align: center;
 }
-
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child){
-        display: none;
-    }
-    .topnav a.icon {
-        float: right;
-        display: block;
-    }
-
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-    .topnav.responsive{float: none;}
-    .topnav.responsive{position: relative;}
-    .topnav.responsive{
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-}
-
 
 /*cards*/
 .card {
@@ -67,6 +62,14 @@ footer{
     height: 450px;
     margin: 25px 25px 25px 25px;
     background-color: #f2f2f2;
+}
+
+.card > h4{
+    text-align: center;
+}
+
+.card-organisator{
+    height: 100px;
 }
 
 .card:hover {
@@ -129,7 +132,7 @@ footer{
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: #29434e;
 }
 
 .text {
@@ -157,12 +160,43 @@ footer{
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: #819ca9;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .active_photo, .dot:hover {
-    background-color: #717171;
+    background-color: #29434e;
+}
+
+/*media queries*/
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child){
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .topnav.responsive{float: none;}
+    .topnav.responsive{position: relative;}
+    .topnav.responsive{
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
 }

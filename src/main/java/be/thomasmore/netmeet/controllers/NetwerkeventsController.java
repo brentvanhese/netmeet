@@ -19,7 +19,7 @@ public class NetwerkeventsController {
     public String netwerkeventsList(Model model){
         Iterable<Netwerkevent> allNetwerkevents = netwerkeventRepository.findAll();
         model.addAttribute("netwerkevents", allNetwerkevents);
-        model.addAttribute("nrVenues", netwerkeventRepository.count());
+        model.addAttribute("nrNetwerkevents", netwerkeventRepository.count());
         return "netwerkeventsList";
     }
 

@@ -6,7 +6,9 @@
 </head>
 <body>
 <header th:fragment="header">
-    <h1>NetMeet</h1>
+    <div class="netmeetPhoto">
+        <img th:src="@{/img/netmeet.png}" src="../../static/img/netmeet.png" alt="Netmeet">
+    </div>
     <nav class="topnav" id="myTopnav">
         <a th:href="@{/}">Home</a>
         <a th:href="@{/netwerkeventsList}">Netwerkevents</a>

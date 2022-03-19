@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Organisators</title>
+    <title th:text="${organisator.naam}">Organisatordetails</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
@@ -10,20 +10,12 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h2>Organisators</h2>
+    <h2 th:text="${organisator.naam}"></h2>
 </header>
 
 <main>
-    <section class="project-cards" style="">
-        <div th:each="organisator: ${organisators}">
-            <div class="card card-organisator">
-                <h4><b th:text="${organisator.naam}"></b></h4>
-                <div class="container">
-                    <a th:href="@{|/organisatordetails/${organisator.id}}">Meer info</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <p>Info:</p>
+    <p th:text="${organisator.info}">Info organisator</p>
 </main>
 
 <footer th:replace="fragments/footer :: footer">
