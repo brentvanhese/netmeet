@@ -21,8 +21,7 @@
         </tr>
         <tr>
             <td><p>Organisator :</p></td>
-            <td><p th:text="${netwerkevent.organisator.naam}">Organisator</p></td>
-        </tr>
+            <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
         <tr>
             <td><p>Vakgebied :</p></td>
             <td><p th:text="${netwerkevent.vakGebied}">Vakgebied</p></td>
