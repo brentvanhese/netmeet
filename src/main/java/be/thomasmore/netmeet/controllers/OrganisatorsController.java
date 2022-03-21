@@ -15,6 +15,7 @@ public class OrganisatorsController {
     @Autowired
     private OrganisatorRepository organisatorRepository;
 
+    //normale user (niet ingelogd)
     @GetMapping("/organisatorsList")
     public String netwerkeventsList(Model model){
         Iterable<Organisator> allOrganisators = organisatorRepository.findAll();
@@ -32,4 +33,6 @@ public class OrganisatorsController {
         }
         return "organisatordetails";
     }
+
+    //organisator user (ingelogd)
 }

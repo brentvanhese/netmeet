@@ -19,7 +19,9 @@
             <div class="card card-organisator">
                 <h4><b th:text="${organisator.naam}"></b></h4>
                 <div class="container">
-                    <a th:href="@{|/organisatordetails/${organisator.id}}">Meer info</a>
+                    <div class="moreInfoButton">
+                        <a th:href="@{|/organisatordetails/${organisator.id}}">Meer info</a>
+                    </div>
                 </div>
             </div>
         </div>

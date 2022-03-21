@@ -22,7 +22,10 @@
                 <p th:text="${'Info: ' + netwerkevent.info}"></p>
                 <p th:text="${'Provincie: ' + netwerkevent.provincie}"></p>
                 <div class="container">
-                    <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>
+                    <div class="moreInfoButton">
+                        <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>
+                    </div>
+
                 </div>
             </div>
         </div>
