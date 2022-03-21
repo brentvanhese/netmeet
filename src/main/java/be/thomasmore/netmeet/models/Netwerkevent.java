@@ -1,5 +1,7 @@
 package be.thomasmore.netmeet.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,10 +19,13 @@ public class Netwerkevent {
     private String info;
     private int maxAanwezigen;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "MM-dd-yyyy")
     private Date datum;
     @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
     private Date duur;
     @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:mm")
     private Date startUur;
 
     public Netwerkevent() {
