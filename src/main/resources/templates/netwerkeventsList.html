@@ -20,7 +20,7 @@
             <div class="card">
                 <h4><b th:text="${netwerkevent.naamNetwerkEvent}"></b></h4>
                 <p th:text="${'Info: ' + netwerkevent.info}"></p>
-                <p th:text="${'Provincie: ' + netwerkevent.provincie}"></p>
+                <p th:text="${'Provincie: ' + netwerkevent.provincie.provincieNaam}"></p>
                 <div class="container">
                     <div class="moreInfoButton">
                         <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>

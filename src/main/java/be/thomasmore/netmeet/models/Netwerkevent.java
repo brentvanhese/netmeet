@@ -11,11 +11,12 @@ public class Netwerkevent {
     private Integer id;
     private String naamNetwerkEvent;
     private String vakGebied;
-    private String provincie;
-    private String adres;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Provincie provincie;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Locatie locatie;
     @ManyToOne(fetch = FetchType.LAZY)
     private Organisator organisator;
-    //private String organisator;
     private String info;
     private int maxAanwezigen;
     @Temporal(TemporalType.DATE)
@@ -41,22 +42,6 @@ public class Netwerkevent {
 
     public void setNaamNetwerkEvent(String naamNetwerkEvent) {
         this.naamNetwerkEvent = naamNetwerkEvent;
-    }
-
-    public String getProvincie() {
-        return provincie;
-    }
-
-    public void setProvincie(String provincie) {
-        this.provincie = provincie;
-    }
-
-    public String getAdres() {
-        return adres;
-    }
-
-    public void setAdres(String adres) {
-        this.adres = adres;
     }
 
     public Organisator getOrganisator() {
@@ -113,5 +98,21 @@ public class Netwerkevent {
 
     public void setStartUur(Date startUur) {
         this.startUur = startUur;
+    }
+
+    public Provincie getProvincie() {
+        return provincie;
+    }
+
+    public void setProvincie(Provincie provincie) {
+        this.provincie = provincie;
+    }
+
+    public Locatie getLocatie() {
+        return locatie;
+    }
+
+    public void setLocatie(Locatie locatie) {
+        this.locatie = locatie;
     }
 }

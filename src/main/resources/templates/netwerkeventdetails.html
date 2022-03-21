@@ -33,11 +33,11 @@
         </tr>
         <tr>
             <td><p>Provincie :</p></td>
-            <td><p th:text="${netwerkevent.provincie}">Provincie</p></td>
+            <td><p th:text="${netwerkevent.provincie.provincieNaam}">Provincie</p></td>
         </tr>
         <tr>
             <td><p>Adres :</p></td>
-            <td><p th:text="${netwerkevent.adres}">Adres</p></td>
+            <td><p th:text="${netwerkevent.locatie.getAdres()}">Adres</p></td>
         </tr>
         <tr>
             <td><p>Start uur :</p></td>

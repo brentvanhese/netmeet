@@ -10,8 +10,8 @@ public class Locatie {
     @Id
     private Integer id;
     private String straat;
-    private int huisnr;
-    private int postcode;
+    private int huisNr;
+    private Integer postcode;
     private String stad;
     @ManyToOne(fetch = FetchType.LAZY)
     private Provincie provincie;
@@ -32,18 +32,18 @@ public class Locatie {
     }
 
     public int getHuisnr() {
-        return huisnr;
+        return huisNr;
     }
 
     public void setHuisnr(int huisnr) {
-        this.huisnr = huisnr;
+        this.huisNr = huisnr;
     }
 
-    public int getPostcode() {
+    public Integer getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(int postcode) {
+    public void setPostcode(Integer postcode) {
         this.postcode = postcode;
     }
 
@@ -61,5 +61,9 @@ public class Locatie {
 
     public void setProvincie(Provincie provincie) {
         this.provincie = provincie;
+    }
+
+    public String getAdres(){
+        return straat + " " + huisNr + ", " + postcode + " " + stad;
     }
 }
