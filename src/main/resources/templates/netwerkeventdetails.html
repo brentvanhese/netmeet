@@ -31,12 +31,8 @@
             <td><p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p></td>
         </tr>
         <tr>
-            <td><p>Provincie :</p></td>
-            <td><p th:text="${netwerkevent.provincie.provincieNaam}">Provincie</p></td>
-        </tr>
-        <tr>
             <td><p>Adres :</p></td>
-            <td><p th:text="${netwerkevent.locatie.getAdres()}">Adres</p></td>
+            <td><a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a></td>
         </tr>
         <tr>
             <td><p>Start uur :</p></td>

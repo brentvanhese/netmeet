@@ -65,6 +65,63 @@ footer{
 }
 
 /*cards*/
+.cardGrid{
+    display: grid;
+    grid-template-areas:
+    "filter cards cards cards"
+    ;
+}
+
+.filter{
+    grid-area: filter;
+    width: 300px;
+    border-right: 1px solid #29434e;
+}
+
+.filter > h3{
+    text-align: center;
+}
+
+.hFilter{
+    margin-bottom: 5px;
+}
+
+.searchButton{
+    text-align: center;
+}
+
+.searchButton > input {
+    background-color: #29434e;
+    color: white;
+    width: 100px;
+    padding: 5px 15px;
+    margin: 10px auto;
+    text-align: center;
+    display:inline-block;
+    border: none;
+    border-radius: 25px;
+}
+
+.searchButton > a{
+    background-color: #819ca9;
+    color: white;
+    font-size: 13px;
+    width: 100px;
+    padding: 5px 35px;
+    margin: 10px auto;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+}
+
+.searchButton > a:hover{
+    background-color: #29434e;
+}
+
+.searchButton > input:hover{
+    background-color: #819ca9;
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -74,6 +131,7 @@ footer{
     background-color: #f2f2f2;
     border-radius: 5px;
     padding-top: 1px;
+    grid-area: cards;
 }
 
 .card > h4{

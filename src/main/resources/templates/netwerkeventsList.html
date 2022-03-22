@@ -14,7 +14,38 @@
     <p class="aantalGevonden" th:text="${nrNetwerkevents}  + ' netwerkevenst gevonden'">0 netwerkevents gevonden</p>
 </header>
 
-<main>
+<main class="cardGrid">
+    <div class="filter">
+        <h3>Filters</h3>
+        <form>
+            <h4 class="hFilter">Provincie</h4>
+            <div>
+                <input type="radio" id="provincieOost-Vlaanderen" name="provincieId" value="1" th:checked="${checkedProvincie eq 1}">
+                <label for="provincieOost-Vlaanderen">Oost-Vlaanderen </label>
+            </div>
+            <div>
+                <input type="radio" id="provincieWest-Vlaanderen" name="provincieId" value="2" th:checked="${checkedProvincie eq 2}">
+                <label for="provincieWest-Vlaanderen">West-Vlaanderen </label>
+            </div>
+            <div>
+                <input type="radio" id="provincieAntwerpen" name="provincieId" value="3" th:checked="${checkedProvincie eq 3}">
+                <label for="provincieAntwerpen">Antwerpen </label>
+            </div>
+            <div>
+                <input type="radio" id="provincieLimburg" name="provincieId" value="4" th:checked="${checkedProvincie eq 4}">
+                <label for="provincieLimburg">Limburg</label>
+            </div>
+            <div>
+                <input type="radio" id="provincieVlaams-Brabant" name="provincieId" value="5" th:checked="${checkedProvincie eq 5}">
+                <label for="provincieVlaams-Brabant">Vlaams-Brabant </label>
+            </div>
+
+            <div class="searchButton">
+                <input type="submit" value="Zoek">
+                <a th:href="@{/netwerkeventsList}">Reset</a>
+            </div>
+        </form>
+    </div>
 
     <section class="project-cards">
         <div th:each="netwerkevent: ${netwerkevents}">
