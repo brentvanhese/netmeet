@@ -17,6 +17,12 @@ h1, h2, h3, h4{
     color: #29434e;
 }
 
+.aantalGevonden{
+    margin-top: 0;
+    color: #29434e;
+    font-size: 13px;
+}
+
 /*Nav*/
 .topnav {
     overflow: hidden;
@@ -41,6 +47,10 @@ h1, h2, h3, h4{
 .topnav a:hover {
     background-color: #819ca9;
     color: white;
+}
+
+header > h2{
+    margin-bottom: 0;
 }
 
 .netmeetPhoto > img{
