@@ -47,39 +47,39 @@ VALUES (
 
 --locatie
 INSERT INTO Locatie(
-    ID, STRAAT, HUIS_NR, POSTCODE, STAD, provincie_Id)
+    ID, NAAM, STRAAT, HUIS_NR, POSTCODE, STAD, MAX_AANWEZIGEN, provincie_Id)
 VALUES(
-       1, 'straat', 5, 9100, 'Sint-Niklaas', 1
+       1, 'NH Collection Antwerp Centre', 'Pelikaanstraat', 84, 2018, 'Antwerpen', 110, 3
       );
 
 --events
 INSERT INTO netwerkevent(
     ID, NAAM_NETWERK_EVENT, VAK_GEBIED, provincie_Id,
-    locatie_Id, ORGANISATOR_Id, INFO, MAX_AANWEZIGEN, START_UUR, DUUR, DATUM)
+    locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          1, 'Java Antwerp meet', 'Java', 3, 1, 1, 'Netwerkevent voor Java', 50, '19:00', '1:00', '2022-03-29');
+          1, 'Java Antwerp meet', 'Java', 3, 1, 1, 'Netwerkevent voor Java', '19:00', '1:00', '2022-03-29');
 
 INSERT INTO netwerkevent(
     ID, NAAM_NETWERK_EVENT, VAK_GEBIED, provincie_Id,
-    locatie_Id, ORGANISATOR_Id, INFO, MAX_AANWEZIGEN, START_UUR, DUUR, DATUM)
+    locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          2, 'Python meet ', 'Python', 1, 1, 2, 'Netwerkevent voor Phyton', 75, '20:00', '2:00', '2022-04-03');
+          2, 'Python meet ', 'Python', 1, 1, 2, 'Netwerkevent voor Phyton', '20:00', '2:00', '2022-04-03');
 
 INSERT INTO netwerkevent(
     ID, NAAM_NETWERK_EVENT, VAK_GEBIED, provincie_Id,
-    locatie_Id, ORGANISATOR_Id, INFO, MAX_AANWEZIGEN, START_UUR, DUUR, DATUM)
+    locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          3, 'Webdesign meet', 'Webdesign', 2, 1, 3, 'Netwerkevent voor webdesign', 30, '18:30', '0:45', '2022-06-05');
+          3, 'Webdesign meet', 'Webdesign', 2, 1, 3, 'Netwerkevent voor webdesign', '18:30', '0:45', '2022-06-05');
 
 INSERT INTO netwerkevent(
     ID, NAAM_NETWERK_EVENT, VAK_GEBIED, provincie_Id,
-    locatie_Id, ORGANISATOR_Id, INFO, MAX_AANWEZIGEN, START_UUR, DUUR, DATUM)
+    locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          4, 'Databank meet', 'Databanken', 4, 1, 2, 'Netwerkevent voor databanken', 45, '12:00', '1:00', '2022-04-06');
+          4, 'Databank meet', 'Databanken', 4, 1, 2, 'Netwerkevent voor databanken', '12:00', '1:00', '2022-04-06');
 
 INSERT INTO netwerkevent(
     ID, NAAM_NETWERK_EVENT, VAK_GEBIED, provincie_Id,
-    locatie_Id, ORGANISATOR_Id, INFO, MAX_AANWEZIGEN, START_UUR, DUUR, DATUM)
+    locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          5, 'Java Vlaam-Brabant meet', 'Java', 5, 1, 1, 'Netwerkevent voor Java', 100, '17:30', '3:00', '2022-05-05');
+          5, 'Java Vlaam-Brabant meet', 'Java', 5, 1, 1, 'Netwerkevent voor Java', '17:30', '3:00', '2022-05-05');
 

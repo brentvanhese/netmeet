@@ -18,7 +18,6 @@ public class Netwerkevent {
     @ManyToOne(fetch = FetchType.LAZY)
     private Organisator organisator;
     private String info;
-    private int maxAanwezigen;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "MM-dd-yyyy")
     private Date datum;
@@ -58,14 +57,6 @@ public class Netwerkevent {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public int getMaxAanwezigen() {
-        return maxAanwezigen;
-    }
-
-    public void setMaxAanwezigen(int maxAanwezigen) {
-        this.maxAanwezigen = maxAanwezigen;
     }
 
     public String getVakGebied() {

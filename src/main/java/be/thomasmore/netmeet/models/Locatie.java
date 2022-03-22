@@ -9,12 +9,14 @@ import javax.persistence.ManyToOne;
 public class Locatie {
     @Id
     private Integer id;
+    private String naam;
     private String straat;
     private int huisNr;
     private Integer postcode;
     private String stad;
     @ManyToOne(fetch = FetchType.LAZY)
     private Provincie provincie;
+    private Integer maxAanwezigen;
 
     public Locatie() {
     }
@@ -31,12 +33,12 @@ public class Locatie {
         this.straat = straat;
     }
 
-    public int getHuisnr() {
+    public int getHuisNr() {
         return huisNr;
     }
 
-    public void setHuisnr(int huisnr) {
-        this.huisNr = huisnr;
+    public void setHuisNr(int huisNr) {
+        this.huisNr = huisNr;
     }
 
     public Integer getPostcode() {
@@ -61,6 +63,22 @@ public class Locatie {
 
     public void setProvincie(Provincie provincie) {
         this.provincie = provincie;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public Integer getMaxAanwezigen() {
+        return maxAanwezigen;
+    }
+
+    public void setMaxAanwezigen(Integer maxAanwezigen) {
+        this.maxAanwezigen = maxAanwezigen;
     }
 
     public String getAdres(){

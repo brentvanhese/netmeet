@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${locatie.naam}">Organisatordetails</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
+</head>
+<body>
+<header>
+    <div th:replace="fragments/header :: header">
+        hier komt de header
+    </div>
+    <h2 th:text="${locatie.naam}"></h2>
+</header>
+
+<main>
+    <table>
+        <tr>
+            <td><p>Adres :</p></td>
+            <td><p th:text="${locatie.getAdres()}" >Adres locatie</p></td>
+        </tr>
+        <tr>
+            <td><p>Max aantal aanwezigen :</p></td>
+            <td><a th:text="${locatie.maxAanwezigen}" >0</a></tr>
+    </table>
+</main>
+
+<footer th:replace="fragments/footer :: footer">
+    Hier komt de footer
+</footer>
+
+</body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</html>
