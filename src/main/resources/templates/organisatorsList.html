@@ -10,11 +10,27 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h2>Organisators</h2>
+    <h1>Organisators</h1>
     <p class="aantalGevonden" th:text="${nrOrganisators}  + ' organisators gevonden'">0 organisators gevonden</p>
 </header>
 
-<main>
+<main class="cardGrid">
+
+    <div class="filter">
+        <h3>Filters</h3>
+        <form>
+            <h4 class="hFilter">Naam organisator</h4>
+            <label for="organisatorNaam">Keyword</label>
+            <input type="text" id="organisatorNaam" name="keyword" th:value="${keyword}">
+
+
+            <div class="searchButton">
+                <input type="submit" value="Zoek">
+                <a th:href="@{/organisatorsList}">Reset</a>
+            </div>
+        </form>
+    </div>
+
     <section class="project-cards" style="">
         <div th:each="organisator: ${organisators}">
             <div class="card card-organisator">
@@ -26,6 +42,10 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="reclameOrganisator">
+        <h3>Zelf organisator worden?</h3>
     </section>
 </main>
 

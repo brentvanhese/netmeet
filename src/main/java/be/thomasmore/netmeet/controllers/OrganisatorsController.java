@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -17,10 +18,11 @@ public class OrganisatorsController {
 
     //normale user (niet ingelogd)
     @GetMapping("/organisatorsList")
-    public String netwerkeventsList(Model model){
-        Iterable<Organisator> allOrganisators = organisatorRepository.findAll();
+    public String netwerkeventsList(Model model, @RequestParam(required = false) String keyword){
+        Iterable<Organisator> allOrganisators = organisatorRepository.findByKeyword(keyword);
         model.addAttribute("organisators", allOrganisators);
-        model.addAttribute("nrOrganisators", organisatorRepository.count());
+        model.addAttribute("nrOrganisators", allOrganisators.spliterator().getExactSizeIfKnown());
+        model.addAttribute("keyword", keyword);
         return "organisatorsList";
     }
 
