@@ -40,6 +40,13 @@
                 <label for="provincieVlaams-Brabant">Vlaams-Brabant </label>
             </div>
 
+            <h4 class="hFilter">Aanwezigen</h4>
+            <label for="minAanwezigen">Min. aanwezigen:</label>
+            <input type="number" id="minAanwezigen" name="minAanwezigen" th:value="${minAanwezigen}" step="10"><br>
+
+            <label for="maxAanwezigen">Max. aanwezigen:</label>
+            <input type="number" id="maxAanwezigen" name="maxAanwezigen" th:value="${maxAanwezigen}" step="10">
+
             <div class="searchButton">
                 <input type="submit" value="Zoek">
                 <a th:href="@{/netwerkeventsList}">Reset</a>

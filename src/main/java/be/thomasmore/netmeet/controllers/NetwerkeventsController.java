@@ -21,11 +21,13 @@ public class NetwerkeventsController {
     private Logger logger = LoggerFactory.getLogger(NetwerkeventsController.class);
 
     @GetMapping("/netwerkeventsList")
-    public String netwerkeventsList(Model model, @RequestParam(required = false) Integer provincieId){
-        Iterable<Netwerkevent> allNetwerkevents = netwerkeventRepository.findByFilterQuery(provincieId);
+    public String netwerkeventsList(Model model, @RequestParam(required = false) Integer provincieId, @RequestParam(required = false) Integer minAanwezigen, @RequestParam(required = false) Integer maxAanwezigen){
+        Iterable<Netwerkevent> allNetwerkevents = netwerkeventRepository.findByFilterQuery(provincieId, minAanwezigen, maxAanwezigen);
         model.addAttribute("netwerkevents", allNetwerkevents);
         model.addAttribute("nrNetwerkevents", allNetwerkevents.spliterator().getExactSizeIfKnown());
         model.addAttribute("checkedProvincie", provincieId);
+        model.addAttribute("minAanwezigen", minAanwezigen);
+        model.addAttribute("maxAanwezigen", maxAanwezigen);
         return "netwerkeventsList";
     }
 
