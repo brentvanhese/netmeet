@@ -107,3 +107,11 @@ INSERT INTO netwerkevent(
 VALUES(
           5, 'Java Vlaam-Brabant meet', 'Java', 5, 5, 1, 'Netwerkevent voor Java', '17:30', '3:00', '2022-05-05');
 
+--user
+INSERT INTO user(
+    ID, USERNAME, PASSWORD, ROLE)
+VALUES (nextval('USER_SEQ'), 'admin', '$2a$10$9MIX8kYPkuB7uE/H5nHF8.KG6.YdjBA/voOnjSZnZDxLXL/2BIerS', 'ROLE_ADMIN');
+
+INSERT INTO user(
+    ID, USERNAME, VOORNAAM, ACHTERNAAM, PASSWORD, ROLE)
+VALUES(nextval('USER_SEQ'), 'vanhesebrent', 'Brent', 'Van Hese', '$2a$10$9TeBFudS7HsgCa4sSvP//O627sMq.KiTFrOr8IzrVlYw5c8aoKzNm', 'ROLE_USER');

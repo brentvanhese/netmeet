@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Uitloggen</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
+<header>
+    <div th:replace="fragments/header :: header">
+        hier komt de header
+    </div>
+</header>
+
+<main>
+    <form th:action="@{/user/logout}" method="post">
+        <h1>Ben je zeker dat je wil uitloggen?</h1>
+        <div class="searchButton">
+            <input type="submit" value="Uitloggen">
+            <a th:href="@{/}">Annuleer</a>
+        </div>
+    </form>
+</main>
+
+<footer th:replace="fragments/footer :: footer">
+    Hier komt de footer
+</footer>
 
 </body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
 </html>

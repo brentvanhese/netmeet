@@ -15,6 +15,8 @@
         <a th:href="@{/locatie-list}">Locaties</a>
         <a th:href="@{/organisatorsList}">Organisators</a>
         <a th:href="@{/overOns}">Over ons</a>
+        <a th:replace="fragments/user :: loginMenu"></a>
+        <a th:replace="fragments/user :: logoutMenu"></a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </nav>
 </header>

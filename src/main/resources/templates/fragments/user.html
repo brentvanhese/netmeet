@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div sec:authorize="isAnonymous()" th:fragment="loginMenu">
+    <a class="inlogButton" href="/user/registreer">Registreer</a>
+    <a class="inlogButton" href="/user/login">Inloggen</a>
+</div>
+
+<div sec:authorize="isAuthenticated()" th:fragment="logoutMenu">
+    <a class="inlogButton" href="/user/logout">Uitloggen</a>
+</div>
+
+</body>
+</html>
