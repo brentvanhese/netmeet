@@ -25,6 +25,10 @@ h1, h2, h3, h4{
     color: #29434e;
 }
 
+.center{
+    text-align: center;
+}
+
 .aantalGevonden{
     margin-top: 0;
     color: #29434e;
@@ -69,6 +73,10 @@ header > p{
 .netmeetPhoto > img{
     margin-left: 5px;
     max-height: 75px;
+}
+
+.inlogButton{
+    float: right;
 }
 
 /*footer*/
