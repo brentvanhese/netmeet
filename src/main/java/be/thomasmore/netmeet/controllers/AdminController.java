@@ -1,13 +1,14 @@
 package be.thomasmore.netmeet.controllers;
 
 import be.thomasmore.netmeet.models.Netwerkevent;
+import be.thomasmore.netmeet.repositories.LocatieRepository;
 import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
+import be.thomasmore.netmeet.repositories.OrganisatorRepository;
+import be.thomasmore.netmeet.repositories.VakgebiedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -16,6 +17,36 @@ import java.util.Optional;
 public class AdminController {
     @Autowired
     private NetwerkeventRepository netwerkeventRepository;
+    @Autowired
+    private LocatieRepository locatieRepository;
+    @Autowired
+    private OrganisatorRepository organisatorRepository;
+    @Autowired
+    private VakgebiedRepository vakgebiedRepository;
+
+    @ModelAttribute
+    public Netwerkevent findNetwerkevent(Model model, @PathVariable(required = false) Integer id){
+        if (id != null){
+            Optional<Netwerkevent> optionalNetwerkevent = netwerkeventRepository.findById(id);
+            if (optionalNetwerkevent.isPresent())return optionalNetwerkevent.get();
+        }
+        return new Netwerkevent();
+    }
+
+    @GetMapping("/edit-netwerkevent/{id}")
+    public String editNetwerkevent(Model model, @PathVariable(required = false) Integer id){
+        model.addAttribute("locaties", locatieRepository.findAll());
+        model.addAttribute("organisators", organisatorRepository.findAll());
+        model.addAttribute("vakgebieden", vakgebiedRepository.findAll());
+        return "admin/edit-netwerkevent";
+    }
+
+    @PostMapping("/edit-netwerkevent/{id}")
+    public String editNetwerkeventPost(Model model, @PathVariable Integer id, @ModelAttribute("netwerkevent") Netwerkevent netwerkevent){
+        netwerkeventRepository.save(netwerkevent);
+
+        return "redirect:/netwerkeventdetails/"+id;
+    }
 
     @GetMapping("/aanvragen-netwerkevents")
     public String aanvragenNetwerkevents(){
@@ -26,17 +57,7 @@ public class AdminController {
     @GetMapping("/aanvragen-organisators")
     public String aanvragenOrganisators(){
 
-        return "admin/aanvragen-organisators";
-    }
-
-    @GetMapping("/edit-netwerkevent")
-    public String editNetwerkevent(Model model, @PathVariable(required = false) Integer id){
-        if (id==null) return "netwerkeventdetails";
-        Optional<Netwerkevent> optionalNetwerkevent = netwerkeventRepository.findById(id);
-        if (optionalNetwerkevent.isPresent()) {
-            model.addAttribute("netwerkevent", optionalNetwerkevent.get());
-        }
-        return "admin/edit-netwerkevent";
+        return "admin/aanvragen-organisator";
     }
 
     @GetMapping("/edit-organisator")

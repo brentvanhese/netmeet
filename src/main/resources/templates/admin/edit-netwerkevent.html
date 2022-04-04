@@ -10,39 +10,53 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h1 th:text="${netwerkevent.naamNetwerkEvent} + ' - ' + ${netwerkevent.datum}"></h1>
 </header>
 
 <main>
-    <table>
-        <tr>
-            <td><p>Info :</p></td>
-            <td><p th:text="${netwerkevent.info}" >Info netwerkevent</p></td>
-        </tr>
-        <tr>
-            <td><p>Organisator :</p></td>
-            <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
-        <tr>
-            <td><p>Vakgebied :</p></td>
-            <td><p th:text="${netwerkevent.vakGebied}">Vakgebied</p></td>
-        </tr>
-        <tr>
-            <td><p>Maximum aantal aanwezigen? :</p></td>
-            <td><p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p></td>
-        </tr>
-        <tr>
-            <td><p>Adres :</p></td>
-            <td><a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a></td>
-        </tr>
-        <tr>
-            <td><p>Start uur :</p></td>
-            <td><p th:text="${netwerkevent.startUur}">0u00</p></td>
-        </tr>
-        <tr>
-            <td><p>Duur :</p></td>
-            <td><p th:text="${netwerkevent.duur}">0u00</p></td>
-        </tr>
-    </table>
+    <div th:if="${netwerkevent}">
+
+        <h1 style="text-align: center">Edit netwerkevent</h1>
+        <form class="editNetwerkevent" th:action="@{|/admin/edit-netwerkevent/${netwerkevent.id}|}" th:object="${netwerkevent}" method="post">
+            <label for="netwerkeventNaam">Netwerkevent naam :</label>
+            <input type="text" id="netwerkeventNaam" th:field="*{naamNetwerkEvent}"><br>
+
+            <label for="info">Info :</label>
+            <input type="text" id="info" th:field="*{info}"><br>
+
+            <label for="organisator">Organisator :</label>
+            <select id="organisator" th:field="*{organisator}">
+                <option th:each="o : ${organisators}" th:selected="*{organisator.naam}" th:value="${o.id}" th:text="${o.naam}"></option>
+            </select><br>
+
+            <label for="vakgebied">Vakgebied :</label>
+            <select id="vakgebied" th:field="*{vakGebied}">
+                <option th:each="v : ${vakgebieden}" th:selected="*{vakGebied.naamVakgebied}" th:value="${v.id}" th:text="${v.naamVakgebied}"></option>
+            </select><br>
+
+            <label for="locatie">Locatie :</label>
+            <select id="locatie" th:field="*{locatie}">
+                <option th:each="l : ${locaties}" th:selected="*{locatie.naam}" th:value="${l.id}" th:text="${l.naam}"></option>
+            </select><br>
+
+            <label for="startUur">Start uur :</label>
+            <input type="time" id="startUur" th:field="*{startUur}"><br>
+
+            <label for="duur">Duur :</label>
+            <input type="time" id="duur" th:field="*{duur}">
+
+            <div class="searchButton">
+                <input type="submit" value="Opslaan">
+                <a th:href="@{|/netwerkeventdetails/*{id}|}">Annuleer</a>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div th:unless="${netwerkevent}">
+        <h1>Geen netwerkevent gevonden!</h1>
+    </div>
+
 </main>
 
 <footer th:replace="fragments/footer :: footer">

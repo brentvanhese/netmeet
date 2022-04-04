@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 <head>
     <meta charset="UTF-8">
     <title th:text="${netwerkevent.naamNetwerkEvent}">Netwerkeventdetails</title>
@@ -14,13 +14,14 @@
     <div class="buttonNextPrev">
         <a class="vorige" th:if="${prev!=null}" th:href="@{'/netwerkeventdetails/' + ${prev}}">&larr;</a>
         <a class="volgende" th:if="${next!=null}"  th:href="@{'/netwerkeventdetails/' + ${next}}">&rarr;</a>
+        <a class="volgende" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{|/admin/edit-netwerkevent/${netwerkevent.id}|}">Edit</a>
     </div><br>
 
     <h1 th:text="${netwerkevent.naamNetwerkEvent} + ' - ' + ${netwerkevent.datum}"></h1>
 </header>
 
 <main>
-    <div th:if="${netwerkevent}">
+    <div th:if="${netwerkevent} != null">
         <table>
             <tr>
                 <td><p>Info :</p></td>
@@ -31,7 +32,7 @@
                 <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
             <tr>
                 <td><p>Vakgebied :</p></td>
-                <td><p th:text="${netwerkevent.vakGebied}">Vakgebied</p></td>
+                <td><p th:text="${netwerkevent.vakGebied.naamVakgebied}">Vakgebied</p></td>
             </tr>
             <tr>
                 <td><p>Maximum aantal aanwezigen? :</p></td>
@@ -52,8 +53,8 @@
         </table>
     </div>
 
-    <div th:unless="${netwerkevent}">
-
+    <div th:unless="${netwerkevent} != null">
+        <h1>Netwerkevent niet gevonden</h1>
     </div>
 
 </main>

@@ -10,7 +10,8 @@ public class Netwerkevent {
     @Id
     private Integer id;
     private String naamNetwerkEvent;
-    private String vakGebied;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Vakgebied vakGebied;
     @ManyToOne(fetch = FetchType.LAZY)
     private Provincie provincie;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -59,11 +60,11 @@ public class Netwerkevent {
         this.info = info;
     }
 
-    public String getVakGebied() {
+    public Vakgebied getVakGebied() {
         return vakGebied;
     }
 
-    public void setVakGebied(String vakGebied) {
+    public void setVakGebied(Vakgebied vakGebied) {
         this.vakGebied = vakGebied;
     }
 

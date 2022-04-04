@@ -286,6 +286,7 @@ footer{
 
 .buttonNextPrev > a{
     width: 100px;
+    height: 20px;
     margin: 10px;
     background-color: #00a9f4;
     color: white;
@@ -316,6 +317,18 @@ footer{
 .reclameOrganisator > h3{
     color: white;
     text-align: center;
+}
+
+.editNetwerkevent{
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.editNetwerkevent > input , select{
+    margin-bottom: 10px;
 }
 
 /*slide show*/
