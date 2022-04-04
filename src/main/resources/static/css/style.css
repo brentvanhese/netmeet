@@ -36,7 +36,7 @@ h1, h2, h3, h4{
 }
 
 /*Nav*/
-.topnav {
+/*.topnav {
     overflow: hidden;
     background-color: #29434e;
     margin-bottom: 50px;
@@ -59,7 +59,7 @@ h1, h2, h3, h4{
 .topnav a:hover {
     background-color: #819ca9;
     color: white;
-}
+}*/
 
 header > h1{
     margin-bottom: 0;
@@ -78,6 +78,71 @@ header > p{
 .inlogButton{
     float: right;
 }
+
+
+
+
+
+
+/*new navbar*/
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #29434e;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #819ca9;
+}
+
+.active {
+    background-color: #00a9f4;
+}
+
+.active:hover{
+    background-color: #819ca9;
+}
+
+/*drowdown tonen door hoveren*/
+ul li ul {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+}
+
+/*dropdown hover*/
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+/*breedte drowdown list*/
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
+
+
+
 
 /*footer*/
 footer{
@@ -233,7 +298,7 @@ footer{
 .slideshow-container {
     max-width: 750px;
     position: relative;
-    margin: auto;
+    margin: 100px auto;
 }
 
 .mySlides {

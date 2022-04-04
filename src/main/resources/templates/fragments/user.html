@@ -1,19 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-<div class="inlogButton" sec:authorize="isAnonymous()" th:fragment="loginMenu">
+<!--<div class="inlogButton" sec:authorize="isAnonymous()" th:fragment="loginMenu">
     <a href="/user/registreer">Registreer</a>
     <a href="/user/login">Inloggen</a>
-</div>
+</div>-->
 
-<div class="inlogButton" sec:authorize="isAuthenticated()" th:fragment="logoutMenu">
+
+<ul>
+    <li class="inlogButton" sec:authorize="isAnonymous()" th:fragment="loginMenu"><a class="active" href="/user/registreer">Registreer</a></li>
+    <li class="inlogButton" sec:authorize="isAnonymous()" th:fragment="registreerMenu"><a class="active" href="/user/login">Login</a></li>
+
+
+    <li class="inlogButton" sec:authorize="hasRole('ROLE_ADMIN')" th:fragment="logoutMenu"><a class="active">Account</a>
+        <ul class="dropdown">
+            <li><a th:href="@{/admin/aanvragen-netwerkevents}">Aanvragen netwerkevents</a></li>
+            <li><a th:href="@{/admin/aanvragen-organisator}">Aanvragen organisator</a></li>
+            <li><a href="/user/logout">Uitloggen</a></li>
+        </ul>
+    </li>
+
+    <li class="inlogButton" sec:authorize="hasRole('ROLE_USER')" th:fragment="logoutMenu"><a class="active">Account</a>
+        <ul class="dropdown">
+            <li><a th:href="@{/logged-in/aanvraag-organisator}">Aanvraag organisator</a></li>
+            <li><a href="/user/logout">Uitloggen</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+
+<!--<div class="inlogButton" sec:authorize="isAuthenticated()" th:fragment="logoutMenu">
+
+
+
+    <div class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="dropbtn">Account</a>
+        <div class="dropdown-content">
+            <a th:href="@{/admin/aanvragen-netwerkevents}" href="">Aanvragen netwerkevents</a>
+            <a th:href="@{/admin/aanvragen-organisator}" href="#">Aanvragen organisator</a>
+            <a href="/user/logout">Uitloggen</a>
+        </div>
+    </div>
+
+    <div class="dropdown" sec:authorize="hasRole('ROLE_ORGANISATOR')">
+        <button class="dropbtn">Account</button>
+        <div class="dropdown-content">
+            <a th:href="@{/admin/aanvragen-netwerkevents}" href="">Aanvragen netwerkevents</a>
+            <a th:href="@{/admin/aanvragen-organisator}" href="#">Aanvragen organisator</a>
+            <a href="/user/logout">Uitloggen</a>
+        </div>
+    </div>
+
+    <div class="dropdown" sec:authorize="hasRole('ROLE_USER')">
+        <button class="dropbtn">Account</button>
+        <div class="dropdown-content">
+            <a th:href="@{/logged-in/aanvraag-organisator}" href="#">Aanvragen organisator</a>
+            <a href="/user/logout">Uitloggen</a>
+        </div>
+    </div>
     <a href="/user/logout">Uitloggen</a>
-</div>
+
+
+
+
+
+
+
+
+
+</div>-->
 
 </body>
 </html>
