@@ -35,8 +35,21 @@ public class NetwerkeventsController {
     public String netwerkeventDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id==null) return "netwerkeventdetails";
         Optional<Netwerkevent> optionalNetwerkevent = netwerkeventRepository.findById(id);
+        Optional<Netwerkevent> optionalPrev = netwerkeventRepository.findFirstByIdLessThanOrderByIdDesc(id);
+        Optional<Netwerkevent> optionalNext = netwerkeventRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalNetwerkevent.isPresent()) {
             model.addAttribute("netwerkevent", optionalNetwerkevent.get());
+        }
+
+        if (optionalPrev.isPresent()) {
+            model.addAttribute("prev", optionalPrev.get().getId());
+        } else {
+            model.addAttribute("prev", netwerkeventRepository.findFirstByOrderByIdDesc().get().getId());
+        }
+        if (optionalNext.isPresent()) {
+            model.addAttribute("next", optionalNext.get().getId());
+        } else {
+            model.addAttribute("next", netwerkeventRepository.findFirstByOrderByIdAsc().get().getId());
         }
         return "netwerkeventdetails";
     }

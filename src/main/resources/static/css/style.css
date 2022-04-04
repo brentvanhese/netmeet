@@ -280,6 +280,30 @@ footer{
     background-color: #819ca9;
 }
 
+.buttonNextPrev{
+    text-align: center;
+}
+
+.buttonNextPrev > a{
+    width: 100px;
+    margin: 10px;
+    background-color: #00a9f4;
+    color: white;
+    border-radius: 20px;
+}
+
+.buttonNextPrev > a:hover{
+    background-color: #819ca9;
+}
+
+.volgende{
+    float: right;
+}
+
+.vorige{
+    float: left;
+}
+
 .reclameOrganisator{
     grid-area: reclame;
     margin-left: -10px;

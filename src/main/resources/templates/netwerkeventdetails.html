@@ -10,39 +10,52 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
+
+    <div class="buttonNextPrev">
+        <a class="vorige" th:if="${prev!=null}" th:href="@{'/netwerkeventdetails/' + ${prev}}">&larr;</a>
+        <a class="volgende" th:if="${next!=null}"  th:href="@{'/netwerkeventdetails/' + ${next}}">&rarr;</a>
+    </div><br>
+
     <h1 th:text="${netwerkevent.naamNetwerkEvent} + ' - ' + ${netwerkevent.datum}"></h1>
 </header>
 
 <main>
-    <table>
-        <tr>
-            <td><p>Info :</p></td>
-            <td><p th:text="${netwerkevent.info}" >Info netwerkevent</p></td>
-        </tr>
-        <tr>
-            <td><p>Organisator :</p></td>
-            <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
-        <tr>
-            <td><p>Vakgebied :</p></td>
-            <td><p th:text="${netwerkevent.vakGebied}">Vakgebied</p></td>
-        </tr>
-        <tr>
-            <td><p>Maximum aantal aanwezigen? :</p></td>
-            <td><p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p></td>
-        </tr>
-        <tr>
-            <td><p>Adres :</p></td>
-            <td><a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a></td>
-        </tr>
-        <tr>
-            <td><p>Start uur :</p></td>
-            <td><p th:text="${netwerkevent.startUur}">0u00</p></td>
-        </tr>
-        <tr>
-            <td><p>Duur :</p></td>
-            <td><p th:text="${netwerkevent.duur}">0u00</p></td>
-        </tr>
-    </table>
+    <div th:if="${netwerkevent}">
+        <table>
+            <tr>
+                <td><p>Info :</p></td>
+                <td><p th:text="${netwerkevent.info}" >Info netwerkevent</p></td>
+            </tr>
+            <tr>
+                <td><p>Organisator :</p></td>
+                <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
+            <tr>
+                <td><p>Vakgebied :</p></td>
+                <td><p th:text="${netwerkevent.vakGebied}">Vakgebied</p></td>
+            </tr>
+            <tr>
+                <td><p>Maximum aantal aanwezigen? :</p></td>
+                <td><p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p></td>
+            </tr>
+            <tr>
+                <td><p>Adres :</p></td>
+                <td><a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a></td>
+            </tr>
+            <tr>
+                <td><p>Start uur :</p></td>
+                <td><p th:text="${netwerkevent.startUur}">0u00</p></td>
+            </tr>
+            <tr>
+                <td><p>Duur :</p></td>
+                <td><p th:text="${netwerkevent.duur}">0u00</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div th:unless="${netwerkevent}">
+
+    </div>
+
 </main>
 
 <footer th:replace="fragments/footer :: footer">
