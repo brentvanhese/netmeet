@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Netwerkevents</title>
@@ -12,6 +12,8 @@
     </div>
     <h1>Netwerkevents</h1>
     <p class="aantalGevonden" th:text="${nrNetwerkevents}  + ' netwerkevenst gevonden'">0 netwerkevents gevonden</p>
+
+    <a sec:authorize="hasRole('ROLE_ADMIN')" class="newItem" th:href="@{/admin/new-netwerkevent}">Nieuw netwerkevent</a>
 </header>
 
 <main class="cardGrid">
@@ -55,11 +57,12 @@
     </div>
 
     <section class="project-cards">
+
         <div th:each="netwerkevent: ${netwerkevents}">
             <div class="card">
                 <h4><b th:text="${netwerkevent.naamNetwerkEvent}"></b></h4>
                 <p th:text="${'Info: ' + netwerkevent.info}"></p>
-                <p th:text="${'Provincie: ' + netwerkevent.provincie.provincieNaam}"></p>
+                <p th:text="${'Provincie: ' + netwerkevent.locatie.provincie.provincieNaam}"></p>
                 <div class="container">
                     <div class="moreInfoButton">
                         <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>

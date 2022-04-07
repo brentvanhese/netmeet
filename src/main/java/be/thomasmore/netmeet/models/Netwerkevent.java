@@ -7,20 +7,20 @@ import java.util.Date;
 
 @Entity
 public class Netwerkevent {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "netwerkevent_generator")
+    @SequenceGenerator(name = "netwerkevent_generator", sequenceName = "netwerkevent_seq", allocationSize = 1)
     @Id
     private Integer id;
     private String naamNetwerkEvent;
     @ManyToOne(fetch = FetchType.LAZY)
     private Vakgebied vakGebied;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Provincie provincie;
-    @ManyToOne(fetch = FetchType.LAZY)
     private Locatie locatie;
     @ManyToOne(fetch = FetchType.LAZY)
     private Organisator organisator;
     private String info;
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date datum;
     @Temporal(TemporalType.TIME)
     @DateTimeFormat(pattern = "HH:mm")
@@ -90,14 +90,6 @@ public class Netwerkevent {
 
     public void setStartUur(Date startUur) {
         this.startUur = startUur;
-    }
-
-    public Provincie getProvincie() {
-        return provincie;
-    }
-
-    public void setProvincie(Provincie provincie) {
-        this.provincie = provincie;
     }
 
     public Locatie getLocatie() {

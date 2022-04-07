@@ -100,34 +100,34 @@ VALUES(
 
 --events
 INSERT INTO netwerkevent(
-    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id, provincie_Id,
+    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id,
     locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          1, 'Java Antwerp meet', 1, 3, 1, 1, 'Netwerkevent voor Java', '19:00', '1:00', '2022-03-29');
+          nextval('netwerkevent_seq'), 'Java Antwerp meet', 1, 1, 1, 'Netwerkevent voor Java', '19:00', '1:00', '2022-03-29');
 
 INSERT INTO netwerkevent(
-    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id, provincie_Id,
+    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id,
     locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          2, 'Python meet ', 2, 1, 2, 2, 'Netwerkevent voor Phyton', '20:00', '2:00', '2022-04-03');
+          nextval('netwerkevent_seq'), 'Python meet ', 2, 2, 2, 'Netwerkevent voor Phyton', '20:00', '2:00', '2022-04-03');
 
 INSERT INTO netwerkevent(
-    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id, provincie_Id,
+    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id,
     locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          3, 'Webdesign meet', 3, 2, 3, 3, 'Netwerkevent voor webdesign', '18:30', '0:45', '2022-06-05');
+          nextval('netwerkevent_seq'), 'Webdesign meet', 3, 3, 3, 'Netwerkevent voor webdesign', '18:30', '0:45', '2022-06-05');
 
 INSERT INTO netwerkevent(
-    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id, provincie_Id,
+    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id,
     locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          4, 'Databank meet', 4, 4, 4, 2, 'Netwerkevent voor databanken', '12:00', '1:00', '2022-04-06');
+          nextval('netwerkevent_seq'), 'Databank meet', 4, 4, 2, 'Netwerkevent voor databanken', '12:00', '1:00', '2022-04-06');
 
 INSERT INTO netwerkevent(
-    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id, provincie_Id,
+    ID, NAAM_NETWERK_EVENT, VAK_GEBIED_Id,
     locatie_Id, ORGANISATOR_Id, INFO, START_UUR, DUUR, DATUM)
 VALUES(
-          5, 'Java Vlaam-Brabant meet', 1, 5, 5, 1, 'Netwerkevent voor Java', '17:30', '3:00', '2022-05-05');
+          nextval('netwerkevent_seq'), 'Java Vlaam-Brabant meet', 1, 5, 1, 'Netwerkevent voor Java', '17:30', '3:00', '2022-05-05');
 
 --user
 INSERT INTO user(

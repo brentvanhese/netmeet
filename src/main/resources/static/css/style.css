@@ -305,6 +305,15 @@ footer{
     float: left;
 }
 
+.newItem{
+    text-align: center;
+    padding: 5px 15px;
+    margin-left: 10px;
+    background-color: #00a9f4;
+    color: white;
+    border-radius: 20px;
+}
+
 .reclameOrganisator{
     grid-area: reclame;
     margin-left: -10px;

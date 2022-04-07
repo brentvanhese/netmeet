@@ -48,6 +48,20 @@ public class AdminController {
         return "redirect:/netwerkeventdetails/"+id;
     }
 
+    @GetMapping("/new-netwerkevent")
+    public String newNetwerkevent(Model model){
+        model.addAttribute("locaties", locatieRepository.findAll());
+        model.addAttribute("organisators", organisatorRepository.findAll());
+        model.addAttribute("vakgebieden", vakgebiedRepository.findAll());
+        return "admin/new-netwerkevent";
+    }
+
+    @PostMapping("/new-netwerkevent")
+    public String newNetwerkeventPost(Model model, @ModelAttribute("netwerkevent") Netwerkevent netwerkevent){
+        netwerkeventRepository.save(netwerkevent);
+        return "redirect:/netwerkeventdetails/"+netwerkevent.getId();
+    }
+
     @GetMapping("/aanvragen-netwerkevents")
     public String aanvragenNetwerkevents(){
 
@@ -64,12 +78,6 @@ public class AdminController {
     public String editOrganisator(){
 
         return "admin/edit-organisator";
-    }
-
-    @GetMapping("/new-netwerkevent")
-    public String newNetwerkevent(){
-
-        return "admin/new-netwerkevent";
     }
 
     @GetMapping("/new-organisator")

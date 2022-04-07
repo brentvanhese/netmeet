@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${netwerkevent.naamNetwerkEvent}">Netwerkeventdetails</title>
+    <title>Edit netwerkevent</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
@@ -37,6 +37,9 @@
             <select id="locatie" th:field="*{locatie}">
                 <option th:each="l : ${locaties}" th:selected="*{locatie.naam}" th:value="${l.id}" th:text="${l.naam}"></option>
             </select><br>
+
+            <label for="datum">Datum</label>
+            <input type="date" id="datum" th:field="*{datum}"><br>
 
             <label for="startUur">Start uur :</label>
             <input type="time" id="startUur" th:field="*{startUur}"><br>
