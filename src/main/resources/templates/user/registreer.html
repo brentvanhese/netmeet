@@ -13,27 +13,27 @@
 </header>
 
 <main>
-    <h1>Registreer</h1>
-    <form th:action="@{/user/register}"method="post">
+    <h1 class="center">Registreer</h1>
+    <form class="login" th:action="@{/user/register}" method="post">
 
         <div>
             <label for="username">Gebruikersnaam :</label>
-            <input class="userFormField" type="text" id="username" name="username">
+            <input class="userFormField" type="text" id="username" name="username" placeholder="Gebruikersnaam">
         </div>
 
         <div>
             <label for="voornaam">Voornaam :</label>
-            <input class="userFormField" type="text" id="voornaam" name="voornaam">
+            <input class="userFormField" type="text" id="voornaam" name="voornaam" placeholder="Voornaam">
         </div>
 
         <div>
             <label for="achternaam">Achternnaam :</label>
-            <input class="userFormField" type="text" id="achternaam" name="achternaam">
+            <input class="userFormField" type="text" id="achternaam" name="achternaam" placeholder="Achternaam">
         </div>
 
         <div>
             <label for="password">Wachtwoord :</label>
-            <input class="userFormField" type="password" id="password" name="password">
+            <input class="userFormField" type="password" id="password" name="password" placeholder="Wachtwoord">
         </div>
 
 

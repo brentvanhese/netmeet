@@ -340,6 +340,18 @@ footer{
     margin-bottom: 10px;
 }
 
+.login{
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 350px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.login input{
+    margin-bottom: 20px;
+}
+
 /*slide show*/
 .slideshow-container {
     max-width: 750px;
