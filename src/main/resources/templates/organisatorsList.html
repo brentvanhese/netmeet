@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Organisators</title>
@@ -44,8 +44,9 @@
         </div>
     </section>
 
-    <section class="reclameOrganisator">
+    <section class="reclameOrganisator" sec:authorize="hasRole('ROLE_USER')">
         <h3>Zelf organisator worden?</h3>
+        <p>Als je zelf ook netwerkevent wil organiseren via deze website. <br>Kan je bij jouw account klikken op 'Aanvraag organisator' of op de onderstande knop drukken. <br>Op die manier kan je organisator recht aanvragen. Succes!</p>
     </section>
 </main>
 
