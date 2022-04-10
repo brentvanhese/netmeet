@@ -47,6 +47,7 @@ public class NetwerkeventsController {
         Optional<Netwerkevent> optionalNext = netwerkeventRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalNetwerkevent.isPresent()) {
             model.addAttribute("netwerkevent", optionalNetwerkevent.get());
+            model.addAttribute("users", optionalNetwerkevent.get().getUsers());
             if(principal!=null){
                 Optional<User> optionalUser = userRepository.findByUsername(principal.getName());
                 model.addAttribute("user", optionalUser.get());

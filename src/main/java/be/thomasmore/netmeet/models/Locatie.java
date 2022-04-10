@@ -1,9 +1,7 @@
 package be.thomasmore.netmeet.models;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Locatie {
@@ -17,6 +15,8 @@ public class Locatie {
     @ManyToOne(fetch = FetchType.LAZY)
     private Provincie provincie;
     private Integer maxAanwezigen;
+    @ManyToMany (fetch = FetchType.LAZY)
+    private Collection<Netwerkevent> netwerkevents;
 
     public Locatie() {
     }
@@ -83,5 +83,13 @@ public class Locatie {
 
     public String getAdres(){
         return straat + " " + huisNr + ", " + postcode + " " + stad;
+    }
+
+    public Collection<Netwerkevent> getNetwerkevents() {
+        return netwerkevents;
+    }
+
+    public void setNetwerkevents(Collection<Netwerkevent> netwerkevents) {
+        this.netwerkevents = netwerkevents;
     }
 }

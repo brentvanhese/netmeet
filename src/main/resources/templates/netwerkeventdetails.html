@@ -53,8 +53,8 @@
         </table>
 
 
-        <div th:if="${user!=null}">
-            <h2>Kom jij naar het event?</h2>
+        <div class="center" th:if="${user!=null}">
+            <h2>Kom jij naar het netwerkevent?</h2>
             <form th:action="@{/going}" method="post">
                 <div class="going" th:if="${!netwerkevent.getUsers().contains(user)}">
                     <input type="submit" value="Ik ga">
@@ -67,10 +67,27 @@
             </form>
         </div>
 
+        <div th:if="${users.size() != 0}" >
+            <h2 class="center">Wie komt er naar het netwerkevent?</h2>
+             <div class="project-cards" style="">
+                 <div th:each="user: ${users}">
+                     <div class="card small-card">
+                         <div th:if="${user.voornaam == null || user.achternaam == null}">
+                             <h3><b th:text="${user.username}"></b></h3>
+                         </div>
+                         <div th:if="${user.voornaam != null || user.achternaam != null}">
+                             <h3><b th:text="${user.voornaam + ' ' + user.achternaam}"></b></h3>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+        </div>
+
     </div>
 
     <div th:unless="${netwerkevent} != null">
-        <h1>Netwerkevent niet gevonden</h1>
+        <h1 class="center">Netwerkevent niet gevonden</h1>
     </div>
 
 </main>

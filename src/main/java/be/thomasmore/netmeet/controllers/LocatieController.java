@@ -2,6 +2,7 @@ package be.thomasmore.netmeet.controllers;
 
 import be.thomasmore.netmeet.models.Locatie;
 import be.thomasmore.netmeet.repositories.LocatieRepository;
+import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,9 @@ import java.util.Optional;
 public class LocatieController {
     @Autowired
     private LocatieRepository locatieRepository;
+
+    @Autowired
+    private NetwerkeventRepository netwerkeventRepository;
 
     @GetMapping("/locatie-list")
     public String locatieList(Model model){
@@ -29,6 +33,7 @@ public class LocatieController {
         Optional<Locatie> optionalLocatie = locatieRepository.findById(id);
         if (optionalLocatie.isPresent()) {
             model.addAttribute("locatie", optionalLocatie.get());
+            model.addAttribute("netwerkevents", netwerkeventRepository.findNetwerkeventByLocatieId(optionalLocatie.get().getId()));
         }
         return "locatie-details";
     }

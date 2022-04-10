@@ -10,12 +10,32 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h1 th:text="${organisator.naam}"></h1>
 </header>
 
 <main>
-    <p>Info:</p>
-    <p th:text="${organisator.info}">Info organisator</p>
+    <div th:if="${organisator}">
+        <h1 th:text="${organisator.naam}"></h1>
+        <p>Info:</p>
+        <p th:text="${organisator.info}">Info organisator</p>
+
+        <div th:if="${netwerkevents.size() != 0}" >
+            <h2 class="center">Netwerkevents die hier doorgaan</h2>
+            <div class="project-cards" style="">
+                <div th:each="netwerkevent: ${netwerkevents}">
+                    <div class="card medium-card">
+                        <h3><b th:text="${netwerkevent.naamNetwerkEvent}"></b></h3>
+                        <div class="moreInfoButton">
+                            <a th:href="@{|/netwerkeventdetails/${netwerkevent.id}}">Meer info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:unless="${organisator}">
+        <h1 class="center">Organisator niet gevonden</h1>
+    </div>
 </main>
 
 <footer th:replace="fragments/footer :: footer">

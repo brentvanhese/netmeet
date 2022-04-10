@@ -1,7 +1,7 @@
 package be.thomasmore.netmeet.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Organisator {
@@ -9,6 +9,8 @@ public class Organisator {
     private Integer id;
     private String naam;
     private String info;
+    @ManyToMany (fetch = FetchType.LAZY)
+    private Collection<Netwerkevent> netwerkevents;
 
     public Organisator() {
     }
@@ -31,5 +33,13 @@ public class Organisator {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public Collection<Netwerkevent> getNetwerkevents() {
+        return netwerkevents;
+    }
+
+    public void setNetwerkevents(Collection<Netwerkevent> netwerkevents) {
+        this.netwerkevents = netwerkevents;
     }
 }

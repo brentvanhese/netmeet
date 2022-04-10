@@ -324,10 +324,26 @@ footer{
     border: none;
     border-radius: 25px;
     margin-top: 0;
+    margin-bottom: 50px;
 }
 
 .going > input:hover{
     background-color: #819ca9;
+}
+
+.small-card{
+    height: 75px;
+    width: 250px;
+}
+
+.small-card h3{
+    text-align: center;
+}
+
+.medium-card{
+    height: 150px;
+    width: 300px;
+    text-align: center;
 }
 
 .reclameOrganisator{

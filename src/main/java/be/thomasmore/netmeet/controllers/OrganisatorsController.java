@@ -1,6 +1,7 @@
 package be.thomasmore.netmeet.controllers;
 
 import be.thomasmore.netmeet.models.Organisator;
+import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
 import be.thomasmore.netmeet.repositories.OrganisatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ import java.util.Optional;
 public class OrganisatorsController {
     @Autowired
     private OrganisatorRepository organisatorRepository;
+
+    @Autowired
+    private NetwerkeventRepository netwerkeventRepository;
 
     //normale user (niet ingelogd)
     @GetMapping("/organisatorsList")
@@ -32,6 +36,7 @@ public class OrganisatorsController {
         Optional<Organisator> optionalOrganisator = organisatorRepository.findById(id);
         if (optionalOrganisator.isPresent()) {
             model.addAttribute("organisator", optionalOrganisator.get());
+            model.addAttribute("netwerkevents", netwerkeventRepository.findNetwerkeventByOrganisatorId(optionalOrganisator.get().getId()));
         }
         return "organisatordetails";
     }
