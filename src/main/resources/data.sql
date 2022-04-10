@@ -137,3 +137,15 @@ VALUES (nextval('USER_SEQ'), 'admin', '$2a$10$9MIX8kYPkuB7uE/H5nHF8.KG6.YdjBA/vo
 INSERT INTO user(
     ID, USERNAME, VOORNAAM, ACHTERNAAM, PASSWORD, ROLE)
 VALUES(nextval('USER_SEQ'), 'vanhesebrent', 'Brent', 'Van Hese', '$2a$10$9TeBFudS7HsgCa4sSvP//O627sMq.KiTFrOr8IzrVlYw5c8aoKzNm', 'ROLE_USER');
+
+INSERT INTO user(
+    ID, USERNAME, PASSWORD, ROLE, organisator_Id)
+VALUES(nextval('USER_SEQ'), 'JavaBelgium', '$2a$10$9TeBFudS7HsgCa4sSvP//O627sMq.KiTFrOr8IzrVlYw5c8aoKzNm', 'ROLE_ORGANISATOR', 1);
+
+INSERT INTO user(
+    ID, USERNAME, PASSWORD, ROLE, organisator_Id)
+VALUES(nextval('USER_SEQ'), 'IctVlaanderen', '$2a$10$9TeBFudS7HsgCa4sSvP//O627sMq.KiTFrOr8IzrVlYw5c8aoKzNm', 'ROLE_ORGANISATOR', 2);
+
+INSERT INTO user(
+    ID, USERNAME, PASSWORD, ROLE, organisator_Id)
+VALUES(nextval('USER_SEQ'), 'TechBel', '$2a$10$9TeBFudS7HsgCa4sSvP//O627sMq.KiTFrOr8IzrVlYw5c8aoKzNm', 'ROLE_ORGANISATOR', 3);

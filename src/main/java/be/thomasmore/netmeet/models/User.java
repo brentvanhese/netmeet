@@ -13,6 +13,8 @@ public class User {
     private String achternaam;
     private String password;
     private String role;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Organisator organisator;
 
     public User() {
     }
@@ -67,5 +69,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Organisator getOrganisator() {
+        return organisator;
+    }
+
+    public void setOrganisator(Organisator organisator) {
+        this.organisator = organisator;
     }
 }

@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nieuw netwerkevent aanvragen</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
+<header>
+    <div th:replace="fragments/header :: header">
+        hier komt de header
+    </div>
+</header>
+
+<main>
+    <div th:if="${aanvraagNetwerkevent}">
+
+        <h1 style="text-align: center">Nieuw netwerkevent aanvraag</h1>
+        <form class="editNetwerkevent" th:action="@{|/organisator/new-netwerkevent|}" th:object="${aanvraagNetwerkevent}" method="post">
+            <label for="netwerkeventNaam">Netwerkevent naam :</label>
+            <input type="text" id="netwerkeventNaam" th:field="*{naamNetwerkEvent}"><br>
+
+            <label for="info">Info :</label>
+            <input type="text" id="info" th:field="*{info}"><br>
+
+
+            <label for="vakgebied">Vakgebied :</label>
+            <select id="vakgebied" th:field="*{vakGebied}">
+                <option th:each="v : ${vakgebieden}" th:value="${v.id}" th:text="${v.naamVakgebied}"></option>
+            </select><br>
+
+            <label for="locatie">Locatie :</label>
+            <select id="locatie" th:field="*{locatie}">
+                <option th:each="l : ${locaties}" th:value="${l.id}" th:text="${l.naam}"></option>
+            </select><br>
+
+            <label for="datum">Datum</label>
+            <input type="date" id="datum" th:field="*{datum}"><br>
+
+            <label for="startUur">Start uur :</label>
+            <input type="time" id="startUur" th:field="*{startUur}"><br>
+
+            <label for="duur">Duur :</label>
+            <input type="time" id="duur" th:field="*{duur}">
+
+            <div class="searchButton">
+                <input type="submit" value="Opslaan">
+                <a th:href="@{/netwerkeventsList}">Annuleer</a>
+            </div>
+        </form>
+    </div>
+
+    <div th:unless="${aanvraagNetwerkevent}">
+        <h1>Geen netwerkevent gevonden!</h1>
+    </div>
+
+</main>
+
+<footer th:replace="fragments/footer :: footer">
+    Hier komt de footer
+</footer>
 
 </body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
 </html>
