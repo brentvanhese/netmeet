@@ -314,6 +314,22 @@ footer{
     border-radius: 20px;
 }
 
+.going > input{
+    background-color: #29434e;
+    color: white;
+    width: 100px;
+    padding: 5px 15px;
+    text-align: center;
+    display:inline-block;
+    border: none;
+    border-radius: 25px;
+    margin-top: 0;
+}
+
+.going > input:hover{
+    background-color: #819ca9;
+}
+
 .reclameOrganisator{
     grid-area: reclame;
     margin-left: -10px;

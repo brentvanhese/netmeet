@@ -3,6 +3,7 @@ package be.thomasmore.netmeet.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -28,6 +29,8 @@ public class Netwerkevent {
     @Temporal(TemporalType.TIME)
     @DateTimeFormat(pattern = "HH:mm")
     private Date startUur;
+    @ManyToMany (fetch = FetchType.LAZY)
+    private Collection<User> users;
 
     public Netwerkevent() {
     }
@@ -98,5 +101,13 @@ public class Netwerkevent {
 
     public void setLocatie(Locatie locatie) {
         this.locatie = locatie;
+    }
+
+    public Collection<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Collection<User> users) {
+        this.users = users;
     }
 }

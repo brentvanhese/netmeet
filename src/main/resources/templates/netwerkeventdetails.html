@@ -51,6 +51,22 @@
                 <td><p th:text="${netwerkevent.duur}">0u00</p></td>
             </tr>
         </table>
+
+
+        <div th:if="${user!=null}">
+            <h2>Kom jij naar het event?</h2>
+            <form th:action="@{/going}" method="post">
+                <div class="going" th:if="${!netwerkevent.getUsers().contains(user)}">
+                    <input type="submit" value="Ik ga">
+                </div>
+                <div class="going" th:if="${netwerkevent.getUsers().contains(user)}">
+                    <input type="submit" value="Ik ga niet">
+                </div>
+                <input type="hidden" name="netwerkeventId" th:value="${netwerkevent.id}">
+                <input type="hidden" name="userId" th:value="${user.id}">
+            </form>
+        </div>
+
     </div>
 
     <div th:unless="${netwerkevent} != null">
