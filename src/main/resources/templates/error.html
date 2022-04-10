@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Over ons</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
@@ -10,11 +10,10 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
-    <h1>Over ons</h1>
 </header>
 
 <main>
-
+    <h1 class="center">Oeps er ging iets mis!</h1>
 </main>
 
 <footer th:replace="fragments/footer :: footer">
@@ -22,16 +21,5 @@
 </footer>
 
 </body>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
 
 </html>

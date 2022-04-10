@@ -10,35 +10,16 @@
         <img th:src="@{/img/netmeet.png}" th:href="@{/home}" src="../../static/img/netmeet.png" alt="Netmeet">
     </div>
     <nav class="topnav" id="myTopnav">
-        <!--<a th:href="@{/}">Home</a>
-        <a th:href="@{/netwerkeventsList}">Netwerkevents</a>
-        <a th:href="@{/locatie-list}">Locaties</a>
-        <a th:href="@{/organisatorsList}">Organisators</a>
-        <a th:href="@{/overOns}">Over ons</a>
-        <a th:replace="fragments/user :: loginMenu"></a>
-        <a th:replace="fragments/user :: logoutMenu"></a>-->
 
         <ul>
             <li><a th:href="@{/}">Home</a></li>
             <li><a th:href="@{/netwerkeventsList}">Netwerkevents</a></li>
             <li><a th:href="@{/locatie-list}">Locaties</a></li>
             <li><a th:href="@{/organisatorsList}">Organisators</a></li>
-            <li><a th:href="@{/overOns}">Over ons</a></li>
             <li th:replace="fragments/user :: registreerMenu"></li>
             <li th:replace="fragments/user :: loginMenu"></li>
             <li th:replace="fragments/user :: logoutMenu"></li>
         </ul>
-
-        <!--<ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li><a th:href="@{/organisatorsList}">Organisators</a></li>
-            <li><a th:href="@{/overOns}">Over ons</a></li>
-            <li th:replace="fragments/user :: registreerMenu"></li>
-            <li th:replace="fragments/user :: loginMenu"></li>
-            <li th:replace="fragments/user :: logoutMenu"></li>
-        </ul>-->
     </nav>
 </header>
 </body>

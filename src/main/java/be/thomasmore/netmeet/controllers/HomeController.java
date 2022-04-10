@@ -11,9 +11,4 @@ public class HomeController {
 
         return "index";
     }
-
-    @GetMapping({"/overOns"})
-    public String overOns(Model model){
-        return "overOns";
-    }
 }
