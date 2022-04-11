@@ -10,6 +10,11 @@
     <div th:replace="fragments/header :: header">
         hier komt de header
     </div>
+
+    <div class="buttonNextPrev">
+        <a class="vorige" th:if="${prev!=null}" th:href="@{'/organisatordetails/' + ${prev}}">&larr;</a>
+        <a class="volgende" th:if="${next!=null}"  th:href="@{'/organisatordetails/' + ${next}}">&rarr;</a>
+    </div><br>
 </header>
 
 <main>

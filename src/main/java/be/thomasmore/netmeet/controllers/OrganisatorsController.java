@@ -34,9 +34,21 @@ public class OrganisatorsController {
     public String venueDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id==null) return "netwerkeventdetails";
         Optional<Organisator> optionalOrganisator = organisatorRepository.findById(id);
+        Optional<Organisator> optionalPrev = organisatorRepository.findFirstByIdLessThanOrderByIdDesc(id);
+        Optional<Organisator> optionalNext = organisatorRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalOrganisator.isPresent()) {
             model.addAttribute("organisator", optionalOrganisator.get());
             model.addAttribute("netwerkevents", netwerkeventRepository.findNetwerkeventByOrganisatorId(optionalOrganisator.get().getId()));
+        }
+        if (optionalPrev.isPresent()) {
+            model.addAttribute("prev", optionalPrev.get().getId());
+        } else {
+            model.addAttribute("prev", organisatorRepository.findFirstByOrderByIdDesc().get().getId());
+        }
+        if (optionalNext.isPresent()) {
+            model.addAttribute("next", optionalNext.get().getId());
+        } else {
+            model.addAttribute("next", organisatorRepository.findFirstByOrderByIdAsc().get().getId());
         }
         return "organisatordetails";
     }

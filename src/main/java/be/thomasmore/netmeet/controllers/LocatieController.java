@@ -1,6 +1,7 @@
 package be.thomasmore.netmeet.controllers;
 
 import be.thomasmore.netmeet.models.Locatie;
+import be.thomasmore.netmeet.models.Netwerkevent;
 import be.thomasmore.netmeet.repositories.LocatieRepository;
 import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,22 @@ public class LocatieController {
     public String venueDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id==null) return "netwerkeventdetails";
         Optional<Locatie> optionalLocatie = locatieRepository.findById(id);
+        Optional<Locatie> optionalPrev = locatieRepository.findFirstByIdLessThanOrderByIdDesc(id);
+        Optional<Locatie> optionalNext = locatieRepository.findFirstByIdGreaterThanOrderById(id);
         if (optionalLocatie.isPresent()) {
             model.addAttribute("locatie", optionalLocatie.get());
             model.addAttribute("netwerkevents", netwerkeventRepository.findNetwerkeventByLocatieId(optionalLocatie.get().getId()));
+        }
+
+        if (optionalPrev.isPresent()) {
+            model.addAttribute("prev", optionalPrev.get().getId());
+        } else {
+            model.addAttribute("prev", locatieRepository.findFirstByOrderByIdDesc().get().getId());
+        }
+        if (optionalNext.isPresent()) {
+            model.addAttribute("next", optionalNext.get().getId());
+        } else {
+            model.addAttribute("next", locatieRepository.findFirstByOrderByIdAsc().get().getId());
         }
         return "locatie-details";
     }
