@@ -4,6 +4,7 @@ import be.thomasmore.netmeet.models.Netwerkevent;
 import be.thomasmore.netmeet.models.User;
 import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
 import be.thomasmore.netmeet.repositories.UserRepository;
+import be.thomasmore.netmeet.repositories.VakgebiedRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,16 @@ public class NetwerkeventsController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private VakgebiedRepository vakgebiedRepository;
+
     private Logger logger = LoggerFactory.getLogger(NetwerkeventsController.class);
 
     @GetMapping("/netwerkeventsList")
-    public String netwerkeventsList(Model model, @RequestParam(required = false) Integer provincieId, @RequestParam(required = false) Integer minAanwezigen, @RequestParam(required = false) Integer maxAanwezigen){
-        Iterable<Netwerkevent> allNetwerkevents = netwerkeventRepository.findByFilterQuery(provincieId, minAanwezigen, maxAanwezigen);
+    public String netwerkeventsList(Model model, @RequestParam(required = false) Integer provincieId, @RequestParam(required = false) Integer minAanwezigen, @RequestParam(required = false) Integer maxAanwezigen, @RequestParam(required = false) String keyword){
+        Iterable<Netwerkevent> allNetwerkevents = netwerkeventRepository.findByFilterQuery(provincieId, minAanwezigen, maxAanwezigen, keyword);
         model.addAttribute("netwerkevents", allNetwerkevents);
+        model.addAttribute("keyword", keyword);
         model.addAttribute("nrNetwerkevents", allNetwerkevents.spliterator().getExactSizeIfKnown());
         model.addAttribute("checkedProvincie", provincieId);
         model.addAttribute("minAanwezigen", minAanwezigen);

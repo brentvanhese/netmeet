@@ -20,6 +20,6 @@ public interface NetwerkeventRepository extends CrudRepository<Netwerkevent, Int
     @Query("SELECT n FROM Netwerkevent n WHERE (:id IS NULL OR n.organisator.id = :id)")
     Collection<Netwerkevent> findNetwerkeventByOrganisatorId(@Param("id") Integer id);
 
-    @Query("SELECT n FROM Netwerkevent n WHERE (:provincieId IS NULL OR n.locatie.provincie.id = :provincieId) AND (:minAanwezigen IS NULL OR n.locatie.maxAanwezigen >= :minAanwezigen) AND (:maxAanwezigen IS NULL OR n.locatie.maxAanwezigen <= :maxAanwezigen)")
-    Iterable<Netwerkevent> findByFilterQuery(@Param("provincieId") Integer provincieId, @Param("minAanwezigen") Integer minAanwezigen, @Param("maxAanwezigen") Integer maxAanwezigen);
+    @Query("SELECT n FROM Netwerkevent n WHERE (:provincieId IS NULL OR n.locatie.provincie.id = :provincieId) AND (:minAanwezigen IS NULL OR n.locatie.maxAanwezigen >= :minAanwezigen) AND (:maxAanwezigen IS NULL OR n.locatie.maxAanwezigen <= :maxAanwezigen) AND (:keyword IS NULL OR LOWER(n.organisator.naam) LIKE LOWER(CONCAT('%',:keyword,'%')))")
+    Iterable<Netwerkevent> findByFilterQuery(@Param("provincieId") Integer provincieId, @Param("minAanwezigen") Integer minAanwezigen, @Param("maxAanwezigen") Integer maxAanwezigen, @Param("keyword") String keyword);
 }

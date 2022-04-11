@@ -47,7 +47,11 @@
             <input type="number" id="minAanwezigen" name="minAanwezigen" th:value="${minAanwezigen}" step="10"><br>
 
             <label for="maxAanwezigen">Max. aanwezigen:</label>
-            <input type="number" id="maxAanwezigen" name="maxAanwezigen" th:value="${maxAanwezigen}" step="10">
+            <input type="number" id="maxAanwezigen" name="maxAanwezigen" th:value="${maxAanwezigen}" step="10"><br>
+
+            <h4 class="hFilter">Naam organisator</h4>
+            <label for="organisatorNaam">Keyword</label>
+            <input type="text" id="organisatorNaam" name="keyword" th:value="${keyword}">
 
             <div class="searchButton">
                 <input type="submit" value="Zoek">
