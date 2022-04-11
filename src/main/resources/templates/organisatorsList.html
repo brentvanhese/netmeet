@@ -43,11 +43,6 @@
             </div>
         </div>
     </section>
-
-    <section class="reclameOrganisator" sec:authorize="hasRole('ROLE_USER')">
-        <h3>Zelf organisator worden?</h3>
-        <p>Als je zelf ook netwerkevent wil organiseren via deze website. <br>Kan je bij jouw account klikken op 'Aanvraag organisator' of op de onderstande knop drukken. <br>Op die manier kan je organisator recht aanvragen. Succes!</p>
-    </section>
 </main>
 
 <footer th:replace="fragments/footer :: footer">
@@ -55,16 +50,5 @@
 </footer>
 
 </body>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
 
 </html>

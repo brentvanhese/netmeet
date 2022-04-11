@@ -1,6 +1,5 @@
 package be.thomasmore.netmeet.controllers;
 
-import be.thomasmore.netmeet.models.AanvraagNetwerkevent;
 import be.thomasmore.netmeet.models.Netwerkevent;
 import be.thomasmore.netmeet.models.Organisator;
 import be.thomasmore.netmeet.models.User;
@@ -44,8 +43,7 @@ public class OrganisatorsController {
 
     //organisator user (ingelogd)
 
-    @Autowired
-    private AanvragenNetwerkeventsRepository aanvragenNetwerkeventsRepository;
+
     @Autowired
     private LocatieRepository locatieRepository;
     @Autowired
@@ -54,25 +52,39 @@ public class OrganisatorsController {
     private UserRepository userRepository;
 
     @ModelAttribute
-    public AanvraagNetwerkevent findAanvraagNetwerkevent(Model model, @PathVariable(required = false) Integer id){
+    public Netwerkevent findNetwerkevent(Model model, @PathVariable(required = false) Integer id){
         if (id != null){
-            Optional<AanvraagNetwerkevent> optionalAanvraagNetwerkevent = aanvragenNetwerkeventsRepository.findById(id);
-            if (optionalAanvraagNetwerkevent.isPresent())return optionalAanvraagNetwerkevent.get();
+            Optional<Netwerkevent> optionalNetwerkevent = netwerkeventRepository.findById(id);
+            if (optionalNetwerkevent.isPresent())return optionalNetwerkevent.get();
         }
-        return new AanvraagNetwerkevent();
+        return new Netwerkevent();
     }
 
-    @GetMapping({"/organisator/aanvraag-new-netwerkevent-organisator"})
-    public String nieuwNetwerkevent(Model model, Principal principal){
+    @GetMapping("/edit-netwerkevent/{id}")
+    public String editNetwerkevent(Model model, @PathVariable(required = false) Integer id){
         model.addAttribute("locaties", locatieRepository.findAll());
         model.addAttribute("organisators", organisatorRepository.findAll());
         model.addAttribute("vakgebieden", vakgebiedRepository.findAll());
+        return "admin/edit-netwerkevent";
+    }
 
-        return "organisator/aanvraag-new-netwerkevent-organisator";
+    @PostMapping("/edit-netwerkevent/{id}")
+    public String editNetwerkeventPost(Model model, @PathVariable Integer id, @ModelAttribute("netwerkevent") Netwerkevent netwerkevent){
+        netwerkeventRepository.save(netwerkevent);
+
+        return "redirect:/netwerkeventdetails/"+id;
+    }
+
+    @GetMapping("/organisator/new-netwerkevent")
+    public String newNetwerkevent(Model model){
+        model.addAttribute("locaties", locatieRepository.findAll());
+        model.addAttribute("organisators", organisatorRepository.findAll());
+        model.addAttribute("vakgebieden", vakgebiedRepository.findAll());
+        return "organisator/new-netwerkevent";
     }
 
     @PostMapping("/organisator/new-netwerkevent")
-    public String newNetwerkeventPost(Model model, @ModelAttribute("netwerkevent") AanvraagNetwerkevent netwerkevent, Principal principal){
+    public String newNetwerkeventPost(Model model, @ModelAttribute("netwerkevent") Netwerkevent netwerkevent, Principal principal){
         Optional<User> optionalUser = userRepository.findByUsername(principal.getName());
         if (optionalUser.isPresent()){
             Optional<Organisator> optionalOrganisator = organisatorRepository.findById(optionalUser.get().getOrganisator().getId());
@@ -80,7 +92,7 @@ public class OrganisatorsController {
                 netwerkevent.setOrganisator(optionalOrganisator.get());
             }
         }
-        aanvragenNetwerkeventsRepository.save(netwerkevent);
-        return "redirect:/netwerkeventsList/";
+        netwerkeventRepository.save(netwerkevent);
+        return "redirect:/netwerkeventdetails/"+netwerkevent.getId();
     }
 }

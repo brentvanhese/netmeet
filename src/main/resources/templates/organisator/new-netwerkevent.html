@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Nieuw netwerkevent aanvragen</title>
+    <title>Nieuw netwerkevent</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="/static/css/style.css" />
 </head>
 <body>
@@ -13,16 +13,15 @@
 </header>
 
 <main>
-    <div th:if="${aanvraagNetwerkevent}">
+    <div th:if="${netwerkevent}">
 
-        <h1 style="text-align: center">Nieuw netwerkevent aanvraag</h1>
-        <form class="editNetwerkevent" th:action="@{|/organisator/new-netwerkevent|}" th:object="${aanvraagNetwerkevent}" method="post">
+        <h1 style="text-align: center">Nieuw netwerkevent</h1>
+        <form class="editNetwerkevent" th:action="@{|/organisator/new-netwerkevent|}" th:object="${netwerkevent}" method="post">
             <label for="netwerkeventNaam">Netwerkevent naam :</label>
             <input type="text" id="netwerkeventNaam" th:field="*{naamNetwerkEvent}"><br>
 
             <label for="info">Info :</label>
             <input type="text" id="info" th:field="*{info}"><br>
-
 
             <label for="vakgebied">Vakgebied :</label>
             <select id="vakgebied" th:field="*{vakGebied}">
@@ -50,7 +49,7 @@
         </form>
     </div>
 
-    <div th:unless="${aanvraagNetwerkevent}">
+    <div th:unless="${netwerkevent}">
         <h1>Geen netwerkevent gevonden!</h1>
     </div>
 

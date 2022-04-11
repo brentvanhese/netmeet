@@ -1,10 +1,7 @@
 package be.thomasmore.netmeet.controllers;
 
 import be.thomasmore.netmeet.models.Netwerkevent;
-import be.thomasmore.netmeet.repositories.LocatieRepository;
-import be.thomasmore.netmeet.repositories.NetwerkeventRepository;
-import be.thomasmore.netmeet.repositories.OrganisatorRepository;
-import be.thomasmore.netmeet.repositories.VakgebiedRepository;
+import be.thomasmore.netmeet.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,29 +57,5 @@ public class AdminController {
     public String newNetwerkeventPost(Model model, @ModelAttribute("netwerkevent") Netwerkevent netwerkevent){
         netwerkeventRepository.save(netwerkevent);
         return "redirect:/netwerkeventdetails/"+netwerkevent.getId();
-    }
-
-    @GetMapping("/aanvragen-netwerkevents")
-    public String aanvragenNetwerkevents(){
-
-        return "admin/aanvragen-netwerkevents";
-    }
-
-    @GetMapping("/aanvragen-organisators")
-    public String aanvragenOrganisators(){
-
-        return "admin/aanvragen-organisator";
-    }
-
-    @GetMapping("/edit-organisator")
-    public String editOrganisator(){
-
-        return "admin/edit-organisator";
-    }
-
-    @GetMapping("/new-organisator")
-    public String newOrganisator(){
-
-        return "admin/new-organisator";
     }
 }

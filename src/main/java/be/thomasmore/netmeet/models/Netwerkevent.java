@@ -35,6 +35,17 @@ public class Netwerkevent {
     public Netwerkevent() {
     }
 
+    public Netwerkevent(String naamNetwerkEvent, Vakgebied vakGebied, Locatie locatie, Organisator organisator, String info, Date datum, Date duur, Date startUur) {
+        this.naamNetwerkEvent = naamNetwerkEvent;
+        this.vakGebied = vakGebied;
+        this.locatie = locatie;
+        this.organisator = organisator;
+        this.info = info;
+        this.datum = datum;
+        this.duur = duur;
+        this.startUur = startUur;
+    }
+
     public Integer getId() {
         return id;
     }

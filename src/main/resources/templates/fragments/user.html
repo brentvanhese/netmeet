@@ -19,8 +19,7 @@
 
     <li class="inlogButton" sec:authorize="hasRole('ROLE_ADMIN')" th:fragment="logoutMenu"><a class="active">Account</a>
         <ul class="dropdown">
-            <li><a th:href="@{/admin/aanvragen-netwerkevents}">Aanvragen netwerkevents</a></li>
-            <li><a th:href="@{/admin/aanvragen-organisator}">Aanvragen organisator</a></li>
+            <li><a th:href="@{/admin/new-netwerkevent}">Nieuw netwerkevents</a></li>
             <li><a href="/user/logout">Uitloggen</a></li>
         </ul>
     </li>
@@ -34,8 +33,7 @@
 
     <li class="inlogButton" sec:authorize="hasRole('ROLE_ORGANISATOR')" th:fragment="logoutMenu"><a class="active">Account</a>
         <ul class="dropdown">
-            <li><a th:href="@{/organisator/aanvraag-new-netwerkevent-organisator}" href="">Aanvraag nieuw netwerkevent</a></li>
-            <li><a th:href="@{/organisator/netwerkevent-list-organisator}" href="#">Mijn netwerkevents</a></li>
+            <li><a th:href="@{/organisator/new-netwerkevent}" href="">Nieuw netwerkevent</a></li>
             <li><a href="/user/logout">Uitloggen</a></li>
         </ul>
     </li>
