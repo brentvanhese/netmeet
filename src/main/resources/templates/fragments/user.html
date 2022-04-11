@@ -26,7 +26,6 @@
 
     <li class="inlogButton" sec:authorize="hasRole('ROLE_USER')" th:fragment="logoutMenu"><a class="active">Account</a>
         <ul class="dropdown">
-            <li><a th:href="@{/logged-in/aanvraag-organisator}">Aanvraag organisator</a></li>
             <li><a href="/user/logout">Uitloggen</a></li>
         </ul>
     </li>
