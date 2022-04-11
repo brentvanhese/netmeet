@@ -17,6 +17,8 @@ public class Locatie {
     private Integer maxAanwezigen;
     @ManyToMany (fetch = FetchType.LAZY)
     private Collection<Netwerkevent> netwerkevents;
+    @Column(length = 1000)
+    private String google;
 
     public Locatie() {
     }
@@ -91,5 +93,13 @@ public class Locatie {
 
     public void setNetwerkevents(Collection<Netwerkevent> netwerkevents) {
         this.netwerkevents = netwerkevents;
+    }
+
+    public String getGoogle() {
+        return google;
+    }
+
+    public void setGoogle(String google) {
+        this.google = google;
     }
 }

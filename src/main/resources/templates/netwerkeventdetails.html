@@ -22,35 +22,28 @@
 
 <main>
     <div th:if="${netwerkevent} != null">
-        <table>
-            <tr>
-                <td><p>Info :</p></td>
-                <td><p th:text="${netwerkevent.info}" >Info netwerkevent</p></td>
-            </tr>
-            <tr>
-                <td><p>Organisator :</p></td>
-                <td><a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a></tr>
-            <tr>
-                <td><p>Vakgebied :</p></td>
-                <td><p th:text="${netwerkevent.vakGebied.naamVakgebied}">Vakgebied</p></td>
-            </tr>
-            <tr>
-                <td><p>Maximum aantal aanwezigen? :</p></td>
-                <td><p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p></td>
-            </tr>
-            <tr>
-                <td><p>Adres :</p></td>
-                <td><a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a></td>
-            </tr>
-            <tr>
-                <td><p>Start uur :</p></td>
-                <td><p th:text="${netwerkevent.startUur}">0u00</p></td>
-            </tr>
-            <tr>
-                <td><p>Duur :</p></td>
-                <td><p th:text="${netwerkevent.duur}">0u00</p></td>
-            </tr>
-        </table>
+        <div class="netwerkevent-info">
+            <h4>Info :</h4>
+            <p th:text="${netwerkevent.info}" >Info netwerkevent</p>
+
+            <h4>Organisator :</h4>
+            <a th:text="${netwerkevent.organisator.naam}" th:href="@{|/organisatordetails/${netwerkevent.organisator.id}|}" >Organisator</a>
+
+            <h4>Vakgebied :</h4>
+            <p th:text="${netwerkevent.vakGebied.naamVakgebied}">Vakgebied</p>
+
+            <h4>Maximum aantal aanwezigen?</h4>
+            <p th:text="${netwerkevent.locatie.maxAanwezigen}">0</p>
+
+            <h4>Adres :</h4>
+            <a th:text="${netwerkevent.locatie.getAdres()}" th:href="@{|/locatie-details/${netwerkevent.locatie.id}|}">Adres</a>
+
+            <h4>Start uur :</h4>
+            <p th:text="${netwerkevent.startUur}">0u00</p>
+
+            <h4>Duur :</h4>
+            <p th:text="${netwerkevent.duur}">0u00</p>
+        </div>
 
 
         <div class="center" th:if="${user!=null}">

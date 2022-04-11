@@ -13,18 +13,13 @@
 
 </header>
 
-<main>
+<main class="center">
     <div th:if="${locatie}">
         <h1 th:text="${locatie.naam}"></h1>
-        <table>
-            <tr>
-                <td><p>Adres :</p></td>
-                <td><p th:text="${locatie.getAdres()}" >Adres locatie</p></td>
-            </tr>
-            <tr>
-                <td><p>Max aantal aanwezigen :</p></td>
-                <td><p th:text="${locatie.maxAanwezigen}" >0</p></tr>
-        </table>
+        <h4 th:text="${'Max aantal aanwezigen : ' + locatie.maxAanwezigen}">Max aantal aanwezigen : 0</h4>
+
+        <h4 th:text="${'Adres : ' + locatie.getAdres()}">Adres : <b>niet gevonden</b></h4>
+        <iframe class="locatiemap" th:src="${locatie.google}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         <div th:if="${netwerkevents.size() != 0}" >
             <h2 class="center">Netwerkevents die hier doorgaan</h2>

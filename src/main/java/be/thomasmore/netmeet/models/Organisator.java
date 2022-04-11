@@ -8,6 +8,7 @@ public class Organisator {
     @Id
     private Integer id;
     private String naam;
+    @Column (length = 2000)
     private String info;
     @ManyToMany (fetch = FetchType.LAZY)
     private Collection<Netwerkevent> netwerkevents;

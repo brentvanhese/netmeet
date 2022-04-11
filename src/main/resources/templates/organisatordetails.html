@@ -14,12 +14,15 @@
 
 <main>
     <div th:if="${organisator}">
-        <h1 th:text="${organisator.naam}"></h1>
-        <p>Info:</p>
-        <p th:text="${organisator.info}">Info organisator</p>
+        <div class="organisator-info">
+            <h1 th:text="${organisator.naam}"></h1>
+            <h4>Info:</h4>
+            <p th:text="${organisator.info}">Info organisator</p>
+        </div>
+
 
         <div th:if="${netwerkevents.size() != 0}" >
-            <h2 class="center">Netwerkevents die hier doorgaan</h2>
+            <h2 class="center">Netwerkevents van ons</h2>
             <div class="project-cards" style="">
                 <div th:each="netwerkevent: ${netwerkevents}">
                     <div class="card medium-card">
