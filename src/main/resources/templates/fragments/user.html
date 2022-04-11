@@ -19,7 +19,7 @@
 
     <li class="inlogButton" sec:authorize="hasRole('ROLE_ADMIN')" th:fragment="logoutMenu"><a class="active">Account</a>
         <ul class="dropdown">
-            <li><a th:href="@{/admin/new-netwerkevent}">Nieuw netwerkevents</a></li>
+            <li><a th:href="@{/admin/new-netwerkevent}">Nieuw netwerkevent</a></li>
             <li><a href="/user/logout">Uitloggen</a></li>
         </ul>
     </li>
